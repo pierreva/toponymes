@@ -21,3 +21,6 @@ rails g cucumber:install
 
 rails g controller enqueteurs
 rails g model enqueteur nom:string date_enquete:date informateur:string 
+
+
+git commit -m "Creation of enqueteurs feature complete"
