@@ -1,1 +1,17 @@
 rails generate model Comment commenter:string body:text post:references
+git init
+Your toponymes directory now contains a .git directory, which is your git repository. It’s all
+kept in one neat little package
+To add all the files for your application to this repository’s staging area, run
+git add .
+To
+create a commit with a message, run
+git commit -m "Generated the Rails 3 application"
+git log
+commit acf8d1056dc8ef8f4480a87820f9f91cbee01c95
+Author: Pierre Vaudrey <pierre.vaudrey@gmail.com>
+Date:   Sat Jun 2 14:03:19 2012 +0200
+
+    Generated the Rails 3 application
+	git remote add origin git@github.com:pierreva/toponymes.git
+	git push origin master -u
