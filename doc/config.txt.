@@ -14,4 +14,10 @@ Date:   Sat Jun 2 14:03:19 2012 +0200
 
     Generated the Rails 3 application
 	git remote add origin git@github.com:pierreva/toponymes.git
-	git push origin master -u
+	git push -u origin master
+
+bundle install --binstubs	
+rails g cucumber:install
+
+rails g controller enqueteurs
+rails g model enqueteur nom:string date_enquete:date informateur:string 
