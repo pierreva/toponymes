@@ -19,6 +19,17 @@ class ToponymesController < ApplicationController
     end
     def show
     end
+    def edit
+    end
+    def update
+      if @toponyme.update_attributes(params[:toponyme])
+        flash[:notice] = "Toponyme has been updated."
+        redirect_to [@enqueteur, @toponyme]
+      else
+        flash[:alert] = "Toponyme has not been updated."
+        render :action => "edit"
+      end
+    end
     private
     def find_enqueteur
       @enqueteur = Enqueteur.find(params[:enqueteur_id])

@@ -43,3 +43,5 @@ rails generate model toponyme toponyme_actuel:string variante_graphique:string p
 
 
 git commit -m "Implemented creating toponymes for a enqueteur"
+
+git commit -m "Implemented edit action for the toponymes controller"
