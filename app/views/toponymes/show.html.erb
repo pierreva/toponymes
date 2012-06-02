@@ -5,3 +5,5 @@
 <%= simple_format(@toponyme.emploi_contexte) %>
 <%= simple_format(@toponyme.ethymologie_proposee) %>
 </div>
+<%= link_to "Delete Toponyme", [@enqueteur, @toponyme], :method => :delete,
+:confirm => "Are you sure you want to delete this toponyme?" %>
