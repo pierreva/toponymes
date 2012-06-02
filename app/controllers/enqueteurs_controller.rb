@@ -1,4 +1,8 @@
 class EnqueteursController < ApplicationController
+  before_filter :find_enqueteur, :only => [:show,
+  :edit,
+  :update,
+  :destroy]
   def index
     @enqueteurs = Enqueteur.all
   end
@@ -7,7 +11,7 @@ class EnqueteursController < ApplicationController
     @enqueteur = Enqueteur.new
   end
   def create
-    @enqueteur = Enqueteur.new(params[:Enqueteur])
+    @enqueteur = Enqueteur.new(params[:enqueteur])
     if @enqueteur.save
       flash[:notice] = "Enqueteur has been created."
       redirect_to @enqueteur
@@ -18,13 +22,10 @@ class EnqueteursController < ApplicationController
     end
   end
   def show
-    @enqueteur = Enqueteur.find(params[:id])
   end
   def edit
-  @enqueteur = Enqueteur.find(params[:id])
   end
   def update
-    @enqueteur = Enqueteur.find(params[:id])
     if @enqueteur.update_attributes(params[:enqueteur])
     flash[:notice] = "Enqueteur has been updated."
     redirect_to @enqueteur
@@ -34,9 +35,16 @@ class EnqueteursController < ApplicationController
     end
   end
   def destroy
-  @enqueteur = Enqueteur.find(params[:id])
   @enqueteur.destroy
   flash[:notice] = "Enqueteur has been deleted."
+  redirect_to enqueteurs_path
+  end
+  private
+  def find_enqueteur
+  @enqueteur = Enqueteur.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+  flash[:alert] = "The enqueteur you were looking" +
+  " for could not be found."
   redirect_to enqueteurs_path
   end
 end
