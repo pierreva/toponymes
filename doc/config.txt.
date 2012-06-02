@@ -33,3 +33,13 @@ git commit -m "Add validation to ensure noms are specified when creating enquete
 git commit -m "Added the ability to view a list of all enqueteurs"
 
 git commit -m "Implemented delete functionality for enqueteurs"
+
+git commit -m "Users should be redirected back to the enqueteurs page if they try going to a enqueteur that doesn't exist."
+
+
+rails g controller toponymes
+
+rails generate model toponyme toponyme_actuel:string variante_graphique:string prononciation_locale:string emploi_contexte:string ethymologie_proposee:text enqueteur:references
+
+
+git commit -m "Implemented creating toponymes for a enqueteur"
