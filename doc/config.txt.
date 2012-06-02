@@ -27,3 +27,5 @@ git commit -m "Creation of enqueteurs feature complete"
 
 
 Enqueteur.create!(:nom => "Christian PONCET", :date_enquete => 12/03/2012, :informateur => "Untel")
+
+git commit -m "Add validation to ensure noms are specified when creating enqueteurs"

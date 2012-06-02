@@ -1,1 +1,7 @@
 <%= link_to "New Enqueteur", new_enqueteur_path %>
+<h2>Enqueteurs</h2>
+<ul>
+<% @enqueteurs.each do |enqueteur| %>
+<li><%= link_to enqueteur.name, enqueteur %></li>
+<% end %>
+</ul>

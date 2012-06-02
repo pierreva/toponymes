@@ -1,5 +1,6 @@
 class EnqueteursController < ApplicationController
   def index
+    @enqueteurs = Enqueteur.all
   end
 
   def new
