@@ -1,4 +1,5 @@
 class ToponymesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_enqueteur
   before_filter :find_toponyme, :only => [:show,
     :edit,
@@ -8,7 +9,7 @@ class ToponymesController < ApplicationController
       @toponyme = @enqueteur.toponymes.build
     end
     def create
-      @toponyme = @enqueteur.toponymes.build(params[:toponyme])
+      @toponyme = @enqueteur.toponymes.build(params[:toponyme].merge!(:user => current_user))
       if @toponyme.save
         flash[:notice] = "Toponyme has been created."
         redirect_to [@enqueteur, @toponyme]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120603150644) do
+ActiveRecord::Schema.define(:version => 20120603155127) do
 
   create_table "enqueteurs", :force => true do |t|
     t.string   "nom"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120603150644) do
     t.integer  "enqueteur_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "toponymes", ["enqueteur_id"], :name => "index_toponymes_on_enqueteur_id"
@@ -47,6 +48,9 @@ ActiveRecord::Schema.define(:version => 20120603150644) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
