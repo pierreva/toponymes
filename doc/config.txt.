@@ -55,3 +55,7 @@ git commit -m "Implemented deleting toponymes feature"
 rails g migration add_user_id_to_toponymes user_id:integer
 
 git commit -m "When creating toponymes, attribute them to the creator."
+
+rails generate migration add_admin_to_users admin:boolean
+
+git commit -m "Restrict access to enquteurs actions to admins only"
