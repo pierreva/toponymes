@@ -1,4 +1,5 @@
 class EnqueteursController < ApplicationController
+  before_filter :authorize_admin!, :except => [:index, :show]
   before_filter :find_enqueteur, :only => [:show,
   :edit,
   :update,
