@@ -14,7 +14,9 @@ group :assets do
   gem 'dynamic_form'
   gem 'uglifier'
 end
-
+gem 'devise', '~> 1.4.3'
+gem 'railroady'
+gem 'rails-erd'
 gem 'jquery-rails'
 
 group :test, :development do
