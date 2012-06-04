@@ -71,3 +71,7 @@ git commit -m "Added admin namespaced users controller"
 git commit -m "Added the ability to create users through the admin backend"
 
 7.6
+
+git commit -m "Added the ability to create admin users through the admin backend"
+
+7.7
