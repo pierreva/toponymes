@@ -63,3 +63,11 @@ git commit -m "Restrict access to enquteurs actions to admins only"
 git commit -m "Lock down specific enqueteurs controller actions for admins only"
 7.4
 rails g controller admin/users index
+
+git commit -m "Added admin namespaced users controller"
+
+7.5
+
+git commit -m "Added the ability to create users through the admin backend"
+
+7.6
