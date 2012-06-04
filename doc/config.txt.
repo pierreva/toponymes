@@ -59,3 +59,7 @@ git commit -m "When creating toponymes, attribute them to the creator."
 rails generate migration add_admin_to_users admin:boolean
 
 git commit -m "Restrict access to enquteurs actions to admins only"
+
+git commit -m "Lock down specific enqueteurs controller actions for admins only"
+7.4
+rails g controller admin/users index
