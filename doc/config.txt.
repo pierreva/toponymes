@@ -116,3 +116,7 @@ git commit -m "Fix signing up feature, take user to alternative confirmation pag
 
 8.4
 git commit -m "Restrict reading toponymes to correct enqueteur scope"
+for(current_user).find(params[:id])   ????
+
+8.5
+git commit -m "Restricting creating toponymes to only users who have permissions to do it"

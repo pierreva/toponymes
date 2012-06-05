@@ -40,7 +40,7 @@ class EnqueteursController < ApplicationController
   end
   private
   def find_enqueteur
-    @enqueteur = Enqueteur.for(current_user).find(params[:enqueteur_id])
+    @enqueteur = Enqueteur.for(current_user).find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The enqueteur you were looking for could not be found."
     redirect_to root_path

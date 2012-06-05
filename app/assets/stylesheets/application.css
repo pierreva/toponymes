@@ -68,12 +68,12 @@ input[type=file] {
   background: #FF3444;
 }
 
-ul#tickets {
+ul#toponymes {
   padding: 15px;
   list-style-type: none;
 }
 
-ul#tickets li {
+ul#toponymes li {
   margin-bottom: 10px;
 }
 
@@ -100,16 +100,16 @@ ul#tickets li {
   background: #C2EC4B;
 }
 
-ul#tickets .state {
+ul#toponymes .state {
   padding-right: 5px;
 /*  margin-right: 4em;*/
 }
 
-ul#tickets .state {
+ul#toponymes .state {
   float: left;
 }
 
-#ticket, .comment {
+#toponyme, .comment {
   margin: 15px 0 15px 0;
   padding: 15px;
   background: #eaeaea;
@@ -118,19 +118,19 @@ ul#tickets .state {
   -webkit-border-radius: 5px;
 }
 
-#ticket a {
+#toponyme a {
   color: #67A300;
 }
 
-#ticket menu {
+#toponyme menu {
   font-size: 75%;
 }
 
-menu, #ticket .state, .states {
+menu, #toponyme .state, .states {
   float: right;
 }
 
-#ticket section {
+#toponyme section {
   clear: both;
 }
 
@@ -146,11 +146,11 @@ menu, #ticket .state, .states {
   padding: 5px;
 }
 
-#ticket #tags {
+#toponyme #tags {
   margin-top: 20px;
 }
 
-#ticket .tag {
+#toponyme .tag {
   background: #232323;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -158,11 +158,11 @@ menu, #ticket .state, .states {
   padding: 8px;
 }
 
-#ticket .tag a {
+#toponyme .tag a {
   color: white;
 }
 
-#ticket .tag .delete {
+#toponyme .tag .delete {
   font-size: 125%;
   text-decoration: none;
 }
@@ -177,4 +177,13 @@ menu, #ticket .state, .states {
 
 .comment, .new_comment {
   width: 75%;
+}
+table {
+border: medium solid #000000;
+border-collapse: collapse;
+width: 50%;
+}
+td, th {
+border: thin solid #67A300;
+width: 50%;
 }
