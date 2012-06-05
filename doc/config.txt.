@@ -120,3 +120,6 @@ for(current_user).find(params[:id])   ????
 
 8.5
 git commit -m "Restricting creating toponymes to only users who have permissions to do it"
+
+8.6
+git commit -m "Restricting toponyme updating to only those who have permission"

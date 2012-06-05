@@ -3,7 +3,7 @@ class ToponymesController < ApplicationController
   before_filter :find_enqueteur
   before_filter :find_toponyme, :only => [:show, :edit, :update, :destroy]
   before_filter :authorize_create!, :only => [:new, :create]
-
+  before_filter :authorize_update!, :only => [:edit, :update]
   def new
     @toponyme = @enqueteur.toponymes.build
   end
@@ -42,5 +42,11 @@ class ToponymesController < ApplicationController
       flash[:alert] = "You cannot create toponymes on this enqueteur."
       redirect_to @enqueteur
     end
+  end
+  def authorize_update!
+  if !current_user.admin? && cannot?(:"edit toponymes", @enqueteur)
+  flash[:alert] = "You cannot edit toponymes on this enqueteur."
+  redirect_to @enqueteur
+  end
   end
 end
