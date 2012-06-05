@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+admin_user = User.create(:email => "admin@toponyme.com",
+                         :password => "password")
+admin_user.admin = true
+admin_user.confirm!
+
+Enqueteur.create(:nom => "Toponymes Beta")

@@ -131,3 +131,6 @@ git commit -m "Restrict actions in ToponymesController based on permissions and 
 git commit -m "Added permissions screen for admins"
 
 git commit -m "Added creating, editing, updating and deleting toponymes to assigning permissions interface"
+
+8.9
+git commit -m "Added a seeds file"
