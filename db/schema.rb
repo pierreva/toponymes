@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605065715) do
+ActiveRecord::Schema.define(:version => 20120605150913) do
 
   create_table "enqueteurs", :force => true do |t|
     t.string   "nom"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(:version => 20120605065715) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
   end
 
   add_index "toponymes", ["enqueteur_id"], :name => "index_toponymes_on_enqueteur_id"

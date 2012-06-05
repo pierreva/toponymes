@@ -1,4 +1,4 @@
-<%= form_for [@enqueteur, @toponyme] do |f| %>
+<%= form_for [@enqueteur, @toponyme], :html => { :multipart => true } do |f| %>
 <%= f.error_messages %>
 <p>
 <%= f.label :toponyme_actuel %><br>
@@ -19,6 +19,10 @@
 <p>
 <%= f.label :ethymologie_proposee %><br>
 <%= f.text_area :ethymologie_proposee %>
+</p>
+<p>
+<%= f.label :asset, "File" %>
+<%= f.file_field :asset %>
 </p>
 <%= f.submit %>
 <% end %>

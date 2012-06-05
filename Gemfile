@@ -16,6 +16,9 @@ group :assets do
 end
 gem 'devise', '~> 1.4.3'
 gem 'cancan'
+
+gem 'paperclip'
+
 gem 'railroady'
 gem 'rails-erd'
 gem 'jquery-rails'

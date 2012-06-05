@@ -13,8 +13,8 @@
 		<td><%= enqueteur.nom %></td>
 		<% permissions.each do |name, text| %>
 		<td>
-		<%= check_box_tag "permissions[#{enqueteur.id}][#{nom}]",
-		@ability.can?(nom.to_sym, enqueteur) %>
+		<%= check_box_tag "permissions[#{enqueteur.id}][#{name}]",
+		@ability.can?(name.to_sym, enqueteur) %>
 	</td>
 	<% end %>
 </tr>
