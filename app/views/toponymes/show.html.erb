@@ -1,4 +1,7 @@
 <br><small>Created by <%= @enqueteur.nom %></small>
+<%= authorized?("edit toponymes", @enqueteur) do %>
+<%= link_to "Edit Toponyme", [:edit, @enqueteur, @toponyme] %>
+<% end %>
 <div id='toponyme'>
 <h2>Toponyme actuel  : <%= @toponyme.toponyme_actuel %></h2>
 <table>
@@ -8,5 +11,10 @@
 <tr><td>étymologie proposée </td><td><%= simple_format(@toponyme.ethymologie_proposee) %></td>
 </table>
 </div>
-<%= link_to "Delete Toponyme", [@enqueteur, @toponyme], :method => :delete,
+
+<%= authorized?("delete toponymes", @enqueteur) do %>
+<%= link_to "Delete Toponyme",
+enqueteur_toponyme_path(@enqueteur, @toponyme),
+:method => :delete,
 :confirm => "Are you sure you want to delete this toponyme?" %>
+<% end %>

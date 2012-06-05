@@ -123,3 +123,6 @@ git commit -m "Restricting creating toponymes to only users who have permissions
 
 8.6
 git commit -m "Restricting toponyme updating to only those who have permission"
+
+8.7
+git commit -m "Restrict actions in ToponymesController based on permissions and hide links"
