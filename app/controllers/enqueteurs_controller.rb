@@ -1,6 +1,6 @@
 class EnqueteursController < ApplicationController
   before_filter :authorize_admin!, :except => [:index, :show]
-  before_filter :authenticate_user!, :only => [:index, :show]
+  before_filter :authenticate_user!
   before_filter :find_enqueteur, :only => [:show, :edit, :update, :destroy]
   def index
     @enqueteurs = Enqueteur.for(current_user).all
@@ -40,10 +40,10 @@ class EnqueteursController < ApplicationController
   end
   private
   def find_enqueteur
-    @enqueteur = Enqueteur.for(current_user).find(params[:id])
+    @enqueteur = Enqueteur.for(current_user).find(params[:enqueteur_id])
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "The enqueteur you were looking" +
-    " for could not be found."
-    redirect_to enqueteurs_path
+    flash[:alert] = "The enqueteur you were looking for could not be found."
+    redirect_to root_path
   end
+
 end
