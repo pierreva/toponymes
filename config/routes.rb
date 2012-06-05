@@ -18,9 +18,9 @@ Toponymes::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-     resources :enqueteurs do
-       resources :toponymes
-     end
+  resources :enqueteurs do
+    resources :toponymes
+  end
 
   # Sample resource route with options:
   #   resources :products do
@@ -66,6 +66,9 @@ Toponymes::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   namespace :admin do
     root :to => "base#index"
-    resources :users
+    resources :users do
+      resources :permissions
+    end
   end
+  put '/admin/users/:user_id/permissions', :to => 'admin/permissions#update', :as => :update_user_permissions
 end
