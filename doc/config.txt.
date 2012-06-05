@@ -79,3 +79,31 @@ git commit -m "Added the ability to create admin users through the admin backend
 git commit -m "Added ability to edit and update users"
 
 7.8
+
+git commit -m "Added feature for deleting users, including protection against self-deletion"
+
+8.1
+
+rails generate model permission user_id:integer thing_id:integer thing_type:string action:string
+
+before_filter :authorize_admin!, :except => [:index, :show]
+before_filter :authenticate_user!, :only => [:show]
+before_filter :find_enqueteur, :only => [:show, :edit, :update, :destroy]
+
+
+@enqueteur = Enqueteur.readable_by(current_user).find(params[:id])
+
+validates :nom, :presence => true, :uniqueness => true
+has_many :permissions, :as => :thing
+scope :readable_by, lambda { |user|
+joins(:permissions).where(:permissions => { :action => "view",
+:user_id => user.id })
+}
+
+@enqueteur = if current_user.admin?
+Enqueteur.find(params[:id])
+else
+Enqueteur.readable_by(current_user).find(params[:id])
+end
+
+git commit -m "Made enqueteurs only visible to users with permission to see them"

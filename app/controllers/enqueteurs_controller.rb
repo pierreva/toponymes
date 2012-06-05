@@ -1,9 +1,7 @@
 class EnqueteursController < ApplicationController
   before_filter :authorize_admin!, :except => [:index, :show]
-  before_filter :find_enqueteur, :only => [:show,
-  :edit,
-  :update,
-  :destroy]
+  before_filter :authenticate_user!, :only => [:show]
+  before_filter :find_enqueteur, :only => [:show, :edit, :update, :destroy]
   def index
     @enqueteurs = Enqueteur.all
   end
@@ -28,26 +26,28 @@ class EnqueteursController < ApplicationController
   end
   def update
     if @enqueteur.update_attributes(params[:enqueteur])
-    flash[:notice] = "Enqueteur has been updated."
-    redirect_to @enqueteur
+      flash[:notice] = "Enqueteur has been updated."
+      redirect_to @enqueteur
     else
-    flash[:alert] = "Enqueteur has not been updated."
-    render :action => "edit"
+      flash[:alert] = "Enqueteur has not been updated."
+      render :action => "edit"
     end
   end
   def destroy
-  @enqueteur.destroy
-  flash[:notice] = "Enqueteur has been deleted."
-  redirect_to enqueteurs_path
+    @enqueteur.destroy
+    flash[:notice] = "Enqueteur has been deleted."
+    redirect_to enqueteurs_path
   end
   private
   def find_enqueteur
-  @enqueteur = Enqueteur.find(params[:id])
+    @enqueteur = if current_user.admin?
+      Enqueteur.find(params[:id])
+    else
+      Enqueteur.readable_by(current_user).find(params[:id])
+    end
   rescue ActiveRecord::RecordNotFound
-  flash[:alert] = "The enqueteur you were looking" +
-  " for could not be found."
-  redirect_to enqueteurs_path
+    flash[:alert] = "The enqueteur you were looking" +
+    " for could not be found."
+    redirect_to enqueteurs_path
   end
 end
-
-
