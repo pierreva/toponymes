@@ -6,4 +6,7 @@ class Enqueteur < ActiveRecord::Base
   joins(:permissions).where(:permissions => { :action => "view",
   :user_id => user.id })
   }
+  def self.for(user)
+  user.admin? ? Enqueteur : Enqueteur.readable_by(user)
+  end
 end
