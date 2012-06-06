@@ -21,6 +21,7 @@ Toponymes::Application.routes.draw do
   resources :enqueteurs do
     resources :toponymes
   end
+  resources :files
 
   # Sample resource route with options:
   #   resources :products do

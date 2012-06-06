@@ -1,7 +1,7 @@
 
 <small>Created by <%=  %></small>
 <%= simple_format(@toponyme.toponyme_actuel) %>
-<% if @toponyme.asset.exists? %>
+<% if @toponyme.assets.exists? %>
 <h3>Attached File</h3>
 <div class="asset">
 <p>

@@ -152,3 +152,10 @@ rails g paperclip toponyme asset
 <% end %>
 
 git commit -m "Added the ability to attach a file to a toponyme"
+
+rails g model asset
+
+
+git commit -m "Users can now upload 3 files at a time"
+9.3
+rails g controller files
