@@ -139,7 +139,7 @@ git commit -m "Added a seeds file"
 rails g paperclip toponyme asset
 
 <small>Created by <%= @toponyme.user.email %></small>
-<%= simple_format(@toponyme.description) %>
+<%= simple_format(@toponyme.toponyme_actuel) %>
 <% if @toponyme.asset.exists? %>
 <h3>Attached File</h3>
 <div class="asset">

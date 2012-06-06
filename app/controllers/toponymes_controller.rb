@@ -7,6 +7,7 @@ class ToponymesController < ApplicationController
   before_filter :authorize_delete!, :only => :destroy
   def new
     @toponyme = @enqueteur.toponymes.build
+    3.times { @toponyme.assets.build }
   end
   def create
     @toponyme = @enqueteur.toponymes.build(params[:toponyme].merge!(:user => current_user))
